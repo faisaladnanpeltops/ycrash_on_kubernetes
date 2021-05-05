@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: ycrash
+  name: ycrash
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ycrash
+  template:
+    metadata:
+      labels:
+        app: ycrash
+    spec:
+      containers:
+      - image: peltops/ycrash:v0.1
+        imagePullPolicy: IfNotPresent
+        name: ycrash
